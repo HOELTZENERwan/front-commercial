@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Front<br>Commercial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="Light-shade">
+    <form (ngSubmit)="login()">
+      <ion-item>
+        <ion-input type="text" name="email" [(ngModel)]="identifiants.email" value="nilson@email.com" placeholder="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" name="password" [(ngModel)]="identifiants.password" value="nilson" placeholder="password"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" class="ion-no-margin">Connexion</ion-button>
+    </form>
+  </ion-card>
+</ion-content>

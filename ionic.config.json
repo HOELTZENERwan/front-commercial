@@ -1,0 +1,7 @@
+{
+  "name": "commercialFront",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
