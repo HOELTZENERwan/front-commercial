@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { ActivatedRoute, Router  } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { ApiRequestService } from '../services/api-request.service';
 
 
 
@@ -16,7 +17,8 @@ export class ConnexionPage implements OnInit {
   constructor(
     private log: AuthService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private api: ApiRequestService,
   ) {
       if (this.log.currentUserValue) { 
         this.router.navigateByUrl('home');
@@ -27,17 +29,14 @@ export class ConnexionPage implements OnInit {
   }
   
   login(){
-
     this.log.connexion(this.identifiants)
-          .pipe(first())
-          .subscribe(
-              (data) => {
-                console.log(data);
-                const redirectUrl = this.route.snapshot.queryParams['../layout/home/home.component.ts'] || '/home';
-                this.router.navigateByUrl(redirectUrl);
-              },
-              (error) => {
-                  console.log(error.message);
-              });
+      .subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (error) => {
+            console.log(error.message);
+        }
+      );
   }
 }

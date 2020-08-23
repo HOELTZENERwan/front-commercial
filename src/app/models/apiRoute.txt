@@ -1,0 +1,16 @@
+php bin/console debug:router
+ ----------------------------------|----------|--------|------|--------------------------------------- 
+  Name                               Method     Scheme   Host   Path                                   
+ ----------------------------------|----------|--------|------|---------------------------------------
+
+  api_frais_index                    GET        ANY      ANY    /apiee/frais
+  api_frais_create                   POST       ANY      ANY    /apiee/frais/create
+  api_clients_index                  GET        ANY      ANY    /apiee/clients
+  api_clients_create                 POST       ANY      ANY    /apiee/clients/create
+  api_trajets_index                  GET        ANY      ANY    /apiee/trajets
+  api_trajets_create                 POST       ANY      ANY    /apiee/trajets/create
+  
+  api_login_check                    POST       ANY      ANY    /apiee/login_check
+
+  gesdinet_jwt_refresh_token         ANY        ANY      ANY    /apiee/token/refresh
+ ----------------------------------|----------|--------|------|---------------------------------------

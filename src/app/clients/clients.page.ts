@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiRequestService } from '../services/api-request.service';
 
 @Component({
   selector: 'app-clients',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class ClientsPage {
 
-  constructor() {}
+  constructor(
+    private api: ApiRequestService,
+  ) {}
 
+  ngOnInit() {
+    console.log(this.api.allClient())
+  }
 }

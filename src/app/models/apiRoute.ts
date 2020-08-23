@@ -1,5 +1,17 @@
+const apiPath = 'http://localhost:8000';
 export const ApiRoute = {
+    
+    login: apiPath + '/apiee/login_check',
 
-    login: 'http://localhost:8000/auth/login',
-    liste_user: 'http://...',
+    client: {
+        all: apiPath + '/apiee/clients',
+        one: apiPath + '',
+    },
+    user: {
+        one: apiPath + '/apiee/utilisateur'
+    },
+    list: {
+
+    },
+    
 }

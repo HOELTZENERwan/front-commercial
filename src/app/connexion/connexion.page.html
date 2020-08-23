@@ -8,7 +8,7 @@
   <ion-card color="Light-shade">
     <form (ngSubmit)="login()">
       <ion-item>
-        <ion-input type="text" name="email" [(ngModel)]="identifiants.email" value="nilson@email.com" placeholder="email"></ion-input>
+        <ion-input type="text" name="email" [(ngModel)]="identifiants.username" value="nilson@email.com" placeholder="username"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -17,5 +17,6 @@
 
       <ion-button expand="block" type="submit" class="ion-no-margin">Connexion</ion-button>
     </form>
+    <ion-button expand="block" type="submit" (click)="nomDeFonction();" class="ion-no-margin">test</ion-button>
   </ion-card>
 </ion-content>
