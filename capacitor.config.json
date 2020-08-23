@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "commercialFront",
+  "appName": "appli-commercial",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

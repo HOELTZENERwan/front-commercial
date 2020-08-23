@@ -1,0 +1,22 @@
+<ion-tabs>
+
+  <ion-tab-bar color="primary" slot="tab">
+
+    <ion-tab-button tab="clients">
+      <img class="tab-icon" *ngIf="!selected" src="../assets/icon/customer.png">
+      <img class="tab-icon2" *ngIf="selected" src="../assets/icon/customer2.png">
+    </ion-tab-button>
+
+    <ion-tab-button tab="home">
+      <img class="tab-icon" *ngIf="!selected" src="../assets/icon/home.png">
+      <img class="tab-icon2" *ngIf="selected" src="../assets/icon/home2.png">
+    </ion-tab-button>
+
+    <ion-tab-button tab="trajets">
+      <img class="tab-icon" *ngIf="!selected"  src="../assets/icon/list.png">
+      <img class="tab-icon2" *ngIf="selected" src="../assets/icon/list2.png">
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-tabs>
