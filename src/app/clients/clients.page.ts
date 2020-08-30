@@ -13,6 +13,6 @@ export class ClientsPage {
   ) {}
 
   ngOnInit() {
-    console.log(this.api.allClient())
+    this.api.allClient()
   }
 }

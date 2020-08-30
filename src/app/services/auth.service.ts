@@ -6,6 +6,7 @@ import * as jwt_decode from 'jwt-decode';
 
 import { User } from '../models/user';
 import { ApiRoute } from '../models/apiRoute';
+import { Token } from '@angular/compiler/src/ml_parser/lexer';
 
 
 @Injectable({
@@ -20,9 +21,9 @@ export class AuthService {
   public getToken;
   public patate;
 
+
   constructor(
     private http: HttpClient,
-    
     ) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -37,8 +38,8 @@ export class AuthService {
     return this.http.post(this.api.login, identifiants)
       .pipe(
         map((token) => {
+          
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          console.log(jwt_decode(token.token));
           localStorage.setItem('currentUser', JSON.stringify(token));
           this.getToken = token;
           return token;
