@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: 'clients',
-        loadChildren: () => import('../clients/clients.module').then(m => m.ClientsPageModule)
+        loadChildren: () => import('../Client/clients/clients.module').then(m => m.ClientsPageModule)
       },
       {
         path: '',
@@ -22,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'trajets',
-        loadChildren: () => import('../trajets/trajets.module').then(m => m.TrajetsPageModule)
+        loadChildren: () => import('../Trajet/trajets/trajets.module').then(m => m.TrajetsPageModule)
       },
     ]
   },

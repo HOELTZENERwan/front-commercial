@@ -17,6 +17,26 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'new-trajet',
+    loadChildren: () => import('./Trajet/new-trajet/new-trajet.module').then( m => m.NewTrajetPageModule)
+  },
+  {
+    path: 'edit-trajet',
+    loadChildren: () => import('./Trajet/edit-trajet/edit-trajet.module').then( m => m.EditTrajetPageModule)
+  },
+  {
+    path: 'edit-frais',
+    loadChildren: () => import('./Frais/edit-frais/edit-frais.module').then( m => m.EditFraisPageModule)
+  },
+  {
+    path: 'new-frais',
+    loadChildren: () => import('./Frais/new-frais/new-frais.module').then( m => m.NewFraisPageModule)
+  },
+  {
+    path: 'liste-frais',
+    loadChildren: () => import('./Frais/liste-frais/liste-frais.module').then( m => m.ListeFraisPageModule)
+  },
   
 ];
 @NgModule({

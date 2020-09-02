@@ -18,8 +18,7 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
   public api = ApiRoute; // objet qui contiens toutes mes url d'api
-  public getToken;
-  public patate;
+
 
 
   constructor(
@@ -34,16 +33,21 @@ export class AuthService {
   }
 
   connexion(identifiants) {
-
+    console.log(identifiants)
     return this.http.post(this.api.login, identifiants)
       .pipe(
         map((token) => {
           
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(token));
-          this.getToken = token;
           return token;
       }));
+  }
+
+  getToken(){
+    
+    var token = JSON.parse(localStorage.getItem('currentUser'));
+    return token.token;
   }
 
   deconnexion() {

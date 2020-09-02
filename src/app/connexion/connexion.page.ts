@@ -33,6 +33,7 @@ export class ConnexionPage implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
+          this.router.navigateByUrl('/',{skipLocationChange: false}).then(() => this.router.navigate([this.route.snapshot.url.join('/home')]))
         },
         (error) => {
             console.log(error.message);

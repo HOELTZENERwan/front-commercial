@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Clients</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+    <ion-card *ngFor="let data of clientData" (click)="affiche(data.id)">
+      <ion-card-header>
+        <ion-card-title>{{ data.prenom }} {{ data.nom }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content *ngIf="data.visible">
+        <ion-text>
+          {{ data.email }}
+        </ion-text>
+        <ion-text>
+          {{ data.adresse }}
+        </ion-text>
+        <ion-text>
+          {{ data.tel }}
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

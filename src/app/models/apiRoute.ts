@@ -8,7 +8,7 @@ export const ApiRoute = {
         one: apiPath + '',
     },
     user: {
-        one: apiPath + '/apiee/utilisateur'
+        one: apiPath + '/apiee/utilisateurs'
     },
     list: {
 
