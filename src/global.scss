@@ -28,4 +28,18 @@
 
 ion-header ion-toolbar{
     height: 100px;
+    position: fixed;
+    z-index: 1000;
+}
+
+.space{
+    height:100px;
+}
+
+hr{
+    border-top-color: #F2913D;
+    border-right-color: #F2913D;
+    border-bottom-color: #F2913D;
+    border-left-color: #F2913D;
+    background-color: #F2913D;
 }

@@ -1,21 +1,23 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Front<br>Commercial</ion-title>
+    <ion-title>3xpense Commercial</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<div class="space"></div>
 <ion-content>
-  <ion-card color="Light-shade">
+ <!-- <ion-card color="Light-shade">
+    <ion-card-content>--> 
     <form (ngSubmit)="login()">
       <ion-item>
-        <ion-input type="text" name="email" [(ngModel)]="identifiants.username" value="nilson@email.com" placeholder="username"></ion-input>
+        <ion-input type="text" name="email" [(ngModel)]="identifiants.username" placeholder="email"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input type="password" name="password" [(ngModel)]="identifiants.password" value="nilson" placeholder="password"></ion-input>
+        <ion-input type="password" name="password" [(ngModel)]="identifiants.password"  placeholder="mot de passe"></ion-input>
       </ion-item>
 
-      <ion-button expand="block" type="submit" class="ion-no-margin">Connexion</ion-button>
+      <ion-button expand="block" color="secondary" type="submit" class="ion-no-margin">Connexion</ion-button>
     </form>
-  </ion-card>
+ <!--  </ion-card-content>
+  </ion-card>-->
 </ion-content>

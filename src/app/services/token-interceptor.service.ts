@@ -17,6 +17,7 @@ export class TokenInterceptorService implements HttpInterceptor{
     //----------- On clone la requete pour travailler dessus -----------
     if(localStorage.getItem('currentUser')){
       this.token = this.authService.getToken();
+
       const clone = request.clone({
         setHeaders: { 
           'Authorization': 'Bearer ' + this.token,
@@ -24,7 +25,9 @@ export class TokenInterceptorService implements HttpInterceptor{
           'Content-Type':  'application/json'
          }
       });
+
       return next.handle(clone);
+      
     }else{
 
       return next.handle(request.clone())

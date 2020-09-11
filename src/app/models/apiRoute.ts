@@ -1,4 +1,6 @@
 const apiPath = 'https://e3manager.com';
+
+
 export const ApiRoute = {
     
     login: apiPath + '/apiee/login_check',
@@ -10,8 +12,11 @@ export const ApiRoute = {
     user: {
         one: apiPath + '/apiee/utilisateurs'
     },
-    list: {
-
+    trajet: {
+        all: apiPath + '/apiee/trajets'
     },
+    frais: {
+        all: apiPath + '/apiee/frais'
+    }
     
 }

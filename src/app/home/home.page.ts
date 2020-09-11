@@ -14,5 +14,6 @@ export class HomePage {
 
   logOut(){
       this.log.deconnexion();
+      
   }        
 } 

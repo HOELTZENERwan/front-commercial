@@ -6,21 +6,28 @@
     </ion-toolbar>
   </ion-header>
 
-
+    <div class="space"></div>
     <ion-card *ngFor="let data of clientData" (click)="affiche(data.id)">
       <ion-card-header>
-        <ion-card-title>{{ data.prenom }} {{ data.nom }}</ion-card-title>
+        <ion-card-title>{{ data.prenom }} {{ data.nom }} <a href=""><img src="" alt=""></a></ion-card-title>
       </ion-card-header>
       <ion-card-content *ngIf="data.visible">
-        <ion-text>
-          {{ data.email }}
-        </ion-text>
-        <ion-text>
-          {{ data.adresse }}
-        </ion-text>
-        <ion-text>
-          {{ data.tel }}
-        </ion-text>
+        <hr color="primary">
+        <ion-item>
+          <ion-text>
+            {{ data.email }}
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-text>
+            {{ data.adresse }}
+          </ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-text>
+            {{ data.tel }}
+          </ion-text>
+        </ion-item>
       </ion-card-content>
     </ion-card>
 </ion-content>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiRequestService } from '../../services/api-request.service';
-import { dataClient } from '../../models/client-liste';
+import { dataClient } from '../../models/fake-liste';
 
 @Component({
   selector: 'app-clients',
@@ -10,7 +10,6 @@ import { dataClient } from '../../models/client-liste';
 export class ClientsPage {
 
 clientData = [];
-hidden: boolean;
 
   constructor(
     private api: ApiRequestService,
@@ -29,11 +28,8 @@ hidden: boolean;
   }
 
   ngOnInit() {
-    this.hidden = false;
 
-    
     dataClient.forEach( data => {
-
       var client = {
         'id': data.id,
         'AllTrajets': data.AllTrajets,
@@ -44,17 +40,15 @@ hidden: boolean;
         'tel': data.tel,
         'visible': false
       };
-
       this.clientData.push(client);
     })
-    console.log(this.clientData)
-    /*
+
     this.api.allClient()
-      .subscribe((data) => {
-        console.log(data)
+      .subscribe((responseData) => {
+
+        console.log(responseData);
       }, (error) => { 
         console.log(error);
       });
-      */
   }
 }

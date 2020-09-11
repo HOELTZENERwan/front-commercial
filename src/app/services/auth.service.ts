@@ -7,6 +7,9 @@ import * as jwt_decode from 'jwt-decode';
 import { User } from '../models/user';
 import { ApiRoute } from '../models/apiRoute';
 import { Token } from '@angular/compiler/src/ml_parser/lexer';
+import { promise } from 'protractor';
+import { rejects } from 'assert';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -23,6 +26,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
+    private route: Router,
     ) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -32,17 +36,36 @@ export class AuthService {
     return this.currentUserSubject.value
   }
 
-  connexion(identifiants) {
-    console.log(identifiants)
-    return this.http.post(this.api.login, identifiants)
-      .pipe(
-        map((token) => {
-          
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(token));
-          return token;
-      }));
+   connexion(identifiants){
+    return new Promise((resolve, reject) => {
+
+      this.http.post(this.api.login, identifiants)
+        .subscribe((data) => {
+          console.log(data);
+          localStorage.setItem('currentUser', JSON.stringify(data));
+          this.route.navigateByUrl('/home');
+          resolve(data);
+        },
+        (error) => {
+          console.log(error);
+          reject(error);
+        })
+    });
+
   }
+
+
+  // public connexion(identifiants) {
+  //   console.log(identifiants)
+  //   this.http.post(this.api.login, identifiants)
+  //     .pipe(
+  //       map((token) => {
+          
+  //         // store user details and jwt token in local storage to keep user logged in between page refreshes
+  //         localStorage.setItem('currentUser', JSON.stringify(token));
+  //         return token;
+  //     }));
+  // }
 
   getToken(){
     
@@ -53,6 +76,7 @@ export class AuthService {
   deconnexion() {
     console.log('deconnexion');
     localStorage.removeItem('currentUser');
+    this.route.navigateByUrl('login');
     this.currentUserSubject.next(null);
   }
 }

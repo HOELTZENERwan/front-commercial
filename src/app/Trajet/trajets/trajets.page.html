@@ -6,5 +6,36 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Trajets page"></app-explore-container>
+  <div class="space"></div>
+  <ion-item>
+    <ion-button color="secondary">+</ion-button>
+  </ion-item>  
+  <ion-card *ngFor="let data of trajetData" (click)="affiche(data.id)">
+    <ion-card-header>
+      <ion-card-title>{{ data.label }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="data.visible">
+      <hr color="primary">
+      <ion-item>
+        <button class="listeFrais" (click)="transfertIdTrajet(data.id)"><img src="../assets/icon/pen.png" ></button>
+      </ion-item>
+      <ion-item>
+        <ion-text>
+          {{ data.dateDebut }}
+        </ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-text>
+          {{ data.dateFin }}
+        </ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-text>
+          {{ data.commentaire }}
+        </ion-text>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+

@@ -25,4 +25,12 @@ export class ApiRequestService {
     return this.http.get(this.api.client.all);
   }
 
+  allTrajet(){
+    return this.http.get(this.api.trajet.all);
+  }
+
+  allFrais(){
+    return this.http.get(this.api.frais.all);
+  }
+
 }

@@ -1,9 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>listeFrais</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true">
 
-<ion-content>
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Liste Frais</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
+  <div class="space"></div>
+  <ion-item>
+    <ion-button color="secondary">+</ion-button>
+  </ion-item>  
+  <ion-card *ngFor="let data of fraisData" (click)="affiche(data.id)">
+    <ion-card-header [ngSwitch]="data.idTypeFrais">
+      <ion-card-title *ngSwitchCase="25">repas {{ data.montant }}€</ion-card-title>
+      <ion-card-title *ngSwitchCase="26">transport {{ data.montant }}€</ion-card-title>
+      <ion-card-title *ngSwitchCase="27">péage {{ data.montant }}€</ion-card-title>
+      <ion-card-title *ngSwitchCase="28">carburant {{ data.montant }}€</ion-card-title>
+      <ion-card-title *ngSwitchCase="29">kilometrique {{ data.montant }}€</ion-card-title>
+      <ion-card-title *ngSwitchCase="30">hébérgement {{ data.montant }}€</ion-card-title>
+      <ion-card-title *ngSwitchCase="31">achat {{ data.montant }}€</ion-card-title>
+      <ion-card-title *ngSwitchCase="32">divers {{ data.montant }}€</ion-card-title>
+
+      <ion-card-title *ngSwitchDefault>{{ data.montant }}€</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="data.visible">
+      <hr color="primary">
+      <ion-item>
+        <button class="listeFrais" ><img src="../assets/icon/pen.png" ></button>
+      </ion-item>
+      <ion-item>
+        <ion-text>
+          {{ data.date }}
+        </ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-text>
+          {{ data.commentaire }}
+        </ion-text>
+      </ion-item>
+      <ion-item [ngSwitch]="data.idStatutFrais">
+
+        <ion-text *ngSwitchCase="19">en attente</ion-text>
+        <ion-text *ngSwitchCase="20">rejeté</ion-text>
+        <ion-text *ngSwitchCase="21">validé</ion-text>
+        <ion-text *ngSwitchCase="22">remboursé intégralement</ion-text>
+        <ion-text *ngSwitchCase="23">partiellement remboursé</ion-text>
+        <ion-text *ngSwitchCase="24">clôturé</ion-text>
+
+        <ion-text *ngSwitchDefault>Inconnue</ion-text>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+

@@ -2,19 +2,16 @@
 
   <ion-tab-bar color="primary" slot="tab">
 
-    <ion-tab-button tab="clients">
-      <img class="tab-icon" *ngIf="!selected" src="../assets/icon/customer.png">
-      <img class="tab-icon2" *ngIf="selected" src="../assets/icon/customer2.png">
+    <ion-tab-button tab="clients" (click)="modif(1)">
+      <img class="tab-icon"  src="{{ clientPath }}">
     </ion-tab-button>
 
-    <ion-tab-button tab="home">
-      <img class="tab-icon" *ngIf="!selected" src="../assets/icon/home.png">
-      <img class="tab-icon2" *ngIf="selected" src="../assets/icon/home2.png">
+    <ion-tab-button tab="home" (click)="modif(2)">
+      <img class="tab-icon"  src="{{ homePath }}">
     </ion-tab-button>
 
-    <ion-tab-button tab="trajets">
-      <img class="tab-icon" *ngIf="!selected"  src="../assets/icon/list.png">
-      <img class="tab-icon2" *ngIf="selected" src="../assets/icon/list2.png">
+    <ion-tab-button tab="trajets" (click)="modif(3)">
+      <img class="tab-icon" src="{{ trajetPath }}">
     </ion-tab-button>
 
   </ion-tab-bar>

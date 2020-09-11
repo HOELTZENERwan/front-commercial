@@ -3,13 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
+
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
     component: TabsPage,
     children: [
       {
@@ -24,6 +20,10 @@ const routes: Routes = [
         path: 'trajets',
         loadChildren: () => import('../Trajet/trajets/trajets.module').then(m => m.TrajetsPageModule)
       },
+      {
+        path: 'frais',
+        loadChildren: () => import('../Frais/liste-frais/liste-frais.module').then(m => m.ListeFraisPageModule)
+      }
     ]
   },
 ];
