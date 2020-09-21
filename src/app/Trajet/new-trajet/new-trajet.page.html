@@ -1,9 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>newTrajet</ion-title>
+  <ion-toolbar color="primary">
+
+    <button class="callBack" (click)="back()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </button>
+
+    <ion-title>Nouveau trajet</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
 
+  <div class="space"></div>
+  
+  <form (ngSubmit)="newTrajet()">
+
+      <ion-item>
+        <ion-input type="text" name="label" [(ngModel)]="trajet.label" placeholder="intitullé"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Client</ion-label>
+
+        <ion-select interface="popover" name="idClient" [(ngModel)]="trajet.idClient">
+          <ion-select-option *ngFor="let client of clientList" value="{{ client.id }}">
+            {{ client.nom }} {{ client.prenom }}
+          </ion-select-option>
+        </ion-select>
+        
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea placeholder="Commentaire" name="commentaire" [(ngModel)]="trajet.commentaire"></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="block" color="secondary" type="submit" class="ion-no-margin">créer un trajet</ion-button>
+    </form>
+
 </ion-content>
+

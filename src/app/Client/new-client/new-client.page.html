@@ -1,9 +1,37 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>newClient</ion-title>
+  <ion-toolbar color="primary">
+
+    <button class="callBack" (click)="back()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </button>
+
+    <ion-title>Nouveau client</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+
+  <div class="space"></div>
+  
+  <form (ngSubmit)="addClient()">
+      <ion-item>
+        <ion-input type="text" name="nom" [(ngModel)]="client.nom" placeholder="nom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="prenom" [(ngModel)]="client.prenom" placeholder="prenom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="email" name="email" [(ngModel)]="client.email" placeholder="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="adresse" [(ngModel)]="client.adresse" placeholder="adresse"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="tel" [(ngModel)]="client.tel" placeholder="tel"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="secondary" type="submit" class="ion-no-margin">créer le client</ion-button>
+    </form>
 
 </ion-content>

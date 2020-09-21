@@ -26,15 +26,63 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
-ion-header ion-toolbar{
-    height: 100px;
+ion-header {
     position: fixed;
-    z-index: 1000;
+    z-index: 10;
+
+    ion-toolbar{
+        height: 100px;
+    }
+
+    .add-element{
+        width: 100%;
+        height: 50px;
+        background-color: none;
+
+        ion-button{
+
+            width: 100%;
+            height: 30px;
+            border-radius: 15px;
+        }    
+    } 
 }
 
 .space{
+    height:150px;
+}
+
+.space2{
     height:100px;
 }
+
+.callBack{
+    margin-top: 20px;
+    color: white;
+    height: 30px;
+    width: 50px;
+    background-color: rgba(255, 255, 255, 0);
+
+    ion-icon{
+        height: 30px;
+        width: 50px;
+    }
+}
+
+.boutonEdit{
+    margin: 10px;
+    height:30px;
+    width: 30px;
+    background-color: var(--ion-color-secondary);
+    border-radius: 30px;
+    float: right;
+    
+    img{
+        height: 15px;
+        width: 15px;
+    }
+}
+
 
 hr{
     border-top-color: #F2913D;

@@ -32,9 +32,14 @@ export class TrajetsPage {
 
   }
 
-  transfertIdTrajet(id){
+  back(){
+    this.transfertService.goBack();
+    
+  }
+
+  listFrais(id){
     this.transfertService.setData(id);
-    this.router.navigateByUrl('/frais');
+    this.router.navigateByUrl('/liste-frais');
   }
 
   ngOnInit() {

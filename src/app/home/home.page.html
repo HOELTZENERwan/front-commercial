@@ -2,11 +2,40 @@
 
   <ion-header>
     <ion-toolbar class="homeHeader" color="primary">
-      <ion-title>Home</ion-title>
+
+      <button class="boutonLogOut" (click)="logOut()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </button>
+
+      <ion-title>Accueil</ion-title>
+
     </ion-toolbar>
   </ion-header>
-  <div class="space"></div>
-   <ion-button expand="block" type="submit" color="secondary" (click)="logOut();" class="ion-no-margin">Déconnexion</ion-button>
 
-  <app-explore-container name="Home page"></app-explore-container>
+  <div class="space2"></div>
+
+  <ion-card>
+    <ion-item>
+      Total en attente : <span> {{ prixEnAttente }}€ <br></span>
+    </ion-item>
+    <ion-item *ngIf="totalAttente > 0">
+      <span>{{ totalAttente }} Frais</span>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      Total remboursé : <span color="Success">{{ prixTraiter }}€</span>
+    </ion-item>
+    <ion-item *ngIf="totalAttente > 0">
+      <span>{{ totalAttente }} Frais</span>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      Total refusé : <span color="Danger">{{ totalrefus }}€</span>
+    </ion-item>
+    <ion-item *ngIf="totalAttente > 0">
+      <span>{{ totalAttente }} Frais</span>
+    </ion-item>
+  </ion-card>
 </ion-content>

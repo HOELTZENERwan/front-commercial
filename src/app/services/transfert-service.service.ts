@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,8 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class TransfertServiceService {
 
-  constructor() { }
+  constructor(
+    private _location: Location
+  ) { 
+
+  }
   private data;
+
   setData(data){
     this.data = data;
   }
@@ -19,5 +25,9 @@ export class TransfertServiceService {
 
   clearData(){
     this.data = undefined;
+  }
+
+  goBack(){
+    this._location.back();
   }
 }

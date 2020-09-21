@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ApiRequestService } from '../../services/api-request.service';
 import { dataClient } from '../../models/fake-liste';
+import { TransfertServiceService } from '../../services/transfert-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clients',
@@ -13,7 +15,13 @@ clientData = [];
 
   constructor(
     private api: ApiRequestService,
+    private transfertService: TransfertServiceService,
+    private route: Router
   ) {}
+
+  back(){
+    this.transfertService.goBack();
+  }
 
   affiche(id){
 

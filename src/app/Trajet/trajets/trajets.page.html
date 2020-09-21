@@ -1,24 +1,36 @@
 <ion-content [fullscreen]="true">
 
   <ion-header>
+
     <ion-toolbar color="primary">
+    
+      <button class="callBack" (click)="back()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </button>
+
       <ion-title>Trajets</ion-title>
+
     </ion-toolbar>
+
+    <ion-toolbar class="add-element">
+      <ion-button color="secondary" routerLink="/new-trajet">+</ion-button>
+    </ion-toolbar> 
+
   </ion-header>
 
   <div class="space"></div>
-  <ion-item>
-    <ion-button color="secondary">+</ion-button>
-  </ion-item>  
+
   <ion-card *ngFor="let data of trajetData" (click)="affiche(data.id)">
     <ion-card-header>
       <ion-card-title>{{ data.label }}</ion-card-title>
+      <hr color="primary">
     </ion-card-header>
     <ion-card-content *ngIf="data.visible">
-      <hr color="primary">
+      
       <ion-item>
-        <button class="listeFrais" (click)="transfertIdTrajet(data.id)"><img src="../assets/icon/pen.png" ></button>
+        <button class="boutonEdit" (click)="listFrais(data.id)"><img src="../assets/icon/list2.png" ></button>
       </ion-item>
+
       <ion-item>
         <ion-text>
           {{ data.dateDebut }}
@@ -37,5 +49,6 @@
 
     </ion-card-content>
   </ion-card>
+
 </ion-content>
 

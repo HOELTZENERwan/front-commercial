@@ -2,17 +2,31 @@
 
   <ion-header>
     <ion-toolbar color="primary">
+
+      <button class="callBack" (click)="back()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </button>
+
       <ion-title>Clients</ion-title>
     </ion-toolbar>
+
+    <ion-toolbar class="add-element">
+      <ion-button color="secondary" routerLink="/new-client">+</ion-button>
+    </ion-toolbar> 
   </ion-header>
 
     <div class="space"></div>
+
+     
+
     <ion-card *ngFor="let data of clientData" (click)="affiche(data.id)">
+
       <ion-card-header>
         <ion-card-title>{{ data.prenom }} {{ data.nom }} <a href=""><img src="" alt=""></a></ion-card-title>
-      </ion-card-header>
-      <ion-card-content *ngIf="data.visible">
         <hr color="primary">
+      </ion-card-header>
+
+      <ion-card-content *ngIf="data.visible">
         <ion-item>
           <ion-text>
             {{ data.email }}
@@ -29,5 +43,6 @@
           </ion-text>
         </ion-item>
       </ion-card-content>
+      
     </ion-card>
 </ion-content>

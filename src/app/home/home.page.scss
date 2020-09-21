@@ -4,3 +4,27 @@ ion-header ion-toolbar-background{
     background-repeat: no-repeat;
     background-size: auto;
 }
+
+.boutonLogOut{
+    
+    margin: 20px;
+    margin-left: 30px;
+    height: 40px;
+    width:  40px;
+    border: solid 3px var(--ion-color-secondary);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 30px;
+    
+    ion-icon{
+        height: 30px;
+        width: 30px;
+        position: relative;
+        right: 4px;
+        color: #fff;
+    }
+    
+}
+
+ion-card{
+   margin-top: 30px;
+}

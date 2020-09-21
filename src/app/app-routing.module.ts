@@ -13,32 +13,39 @@ const routes: Routes = [
     loadChildren: () => import('./connexion/connexion.module').then( m => m.ConnexionPageModule)
   },
   {
+    path: 'new-trajet',
+    loadChildren: () => import('./Trajet/new-trajet/new-trajet.module').then( m => m.NewTrajetPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'liste-frais',
+    loadChildren: () => import('./Frais/liste-frais/liste-frais.module').then( m => m.ListeFraisPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'frais',
+    loadChildren: () => import('./Frais/frais/frais.module').then( m => m.FraisPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'new-frais',
+    loadChildren: () => import('./Frais/new-frais/new-frais.module').then( m => m.NewFraisPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'new-client',
+    loadChildren: () => import('./Client/new-client/new-client.module').then( m => m.NewClientPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full'
   },
-  {
-    path: 'new-trajet',
-    loadChildren: () => import('./Trajet/new-trajet/new-trajet.module').then( m => m.NewTrajetPageModule)
-  },
-  {
-    path: 'edit-trajet',
-    loadChildren: () => import('./Trajet/edit-trajet/edit-trajet.module').then( m => m.EditTrajetPageModule)
-  },
-  {
-    path: 'edit-frais',
-    loadChildren: () => import('./Frais/edit-frais/edit-frais.module').then( m => m.EditFraisPageModule)
-  },
-  {
-    path: 'new-frais',
-    loadChildren: () => import('./Frais/new-frais/new-frais.module').then( m => m.NewFraisPageModule)
-  },
-  {
-    path: 'liste-frais',
-    loadChildren: () => import('./Frais/liste-frais/liste-frais.module').then( m => m.ListeFraisPageModule)
-  },
+ 
   
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

@@ -8,12 +8,14 @@ export const ApiRoute = {
     client: {
         all: apiPath + '/apiee/clients',
         one: apiPath + '',
+        new: apiPath + '/apiee/clients/create',
     },
     user: {
         one: apiPath + '/apiee/utilisateurs'
     },
     trajet: {
-        all: apiPath + '/apiee/trajets'
+        all: apiPath + '/apiee/trajets',
+        new: apiPath + '/apiee/trajets/create',
     },
     frais: {
         all: apiPath + '/apiee/frais'

@@ -25,8 +25,16 @@ export class ApiRequestService {
     return this.http.get(this.api.client.all);
   }
 
+  newClient(data){
+    return this.http.post(this.api.client.new, data);
+  }
+
   allTrajet(){
     return this.http.get(this.api.trajet.all);
+  }
+
+  newTrajet(data){
+    return this.http.post(this.api.trajet.new, data);
   }
 
   allFrais(){

@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true">
+
+  <ion-header>
+    <ion-toolbar color="primary">
+
+      <button class="callBack" (click)="back()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </button>
+      
+      <ion-title>Liste des frais</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="space2"></div>
+
+  <ion-card>
+    <img src="{{ frais.scan }}">
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-text>
+          {{ frais.montant }}€
+        </ion-text>
+      </ion-item>
+      <ion-item [ngSwitch]="frais.idStatutFrais"  class="entete">
+        <ion-text *ngSwitchCase="19">en attente</ion-text>
+        <ion-text *ngSwitchCase="20">rejeté </ion-text>
+        <ion-text *ngSwitchCase="21">validé </ion-text>
+        <ion-text *ngSwitchCase="22">remboursé intégralement </ion-text>
+        <ion-text *ngSwitchCase="23">partiellement remboursé </ion-text>
+        <ion-text *ngSwitchCase="24">cloturé </ion-text>
+        <ion-text *ngSwitchDefault>inconnu </ion-text>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        {{ frais.date }}
+      </ion-item>
+      <ion-item>
+        {{ frais.commentaire }}
+      </ion-item>
+    </ion-card-content>
+
+
+  </ion-card>
+  
+</ion-content>
+

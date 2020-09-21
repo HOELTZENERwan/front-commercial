@@ -1,9 +1,51 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>newFrais</ion-title>
+  <ion-toolbar color="primary">
+
+    <button class="callBack" (click)="back()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </button>
+
+    <ion-title>Nouveau frais</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+
+  <div class="space2"></div>
+
+  <ion-card>
+    <div>
+      <button class="boutonEdit" (click)="photographie()"><img src="../assets/icon/camera.png" ></button>
+      <button class="boutonEdit" (click)="upload()"><img src="../assets/icon/upload.png" ></button>
+    </div>
+    
+    <ion-item>
+      <img *ngIf="ifImage()" src="{{ frais.img }}">
+    </ion-item>
+  </ion-card>
+  
+  <ion-card>
+    <form (ngSubmit)="addFrais()">
+        <ion-item>
+          <ion-input type="text" name="commentaire" [(ngModel)]="frais.commentaire" placeholder="Commentaire"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Type :</ion-label>
+          <ion-select interface="popover" name="idTypeFrais" [(ngModel)]="frais.idTypeFrais">
+            <ion-select-option value="25">repas</ion-select-option>
+            <ion-select-option value="26">transport</ion-select-option>
+            <ion-select-option value="27">péage</ion-select-option>
+            <ion-select-option value="28">carburant</ion-select-option>
+            <ion-select-option value="29">kilometrique</ion-select-option>
+            <ion-select-option value="30">hébérgement</ion-select-option>
+            <ion-select-option value="31">achat</ion-select-option>
+            <ion-select-option value="32">divers</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-button expand="block" color="secondary" type="submit" class="ion-no-margin">créer le frais</ion-button>
+      </form>
+    </ion-card>
 
 </ion-content>

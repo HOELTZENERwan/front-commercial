@@ -11,31 +11,24 @@ import { TransfertServiceService } from '../../services/transfert-service.servic
   styleUrls: ['./liste-frais.page.scss'],
 })
 export class ListeFraisPage implements OnInit {
+
   fraisData = [];
   idFrais;
 
-
   constructor(
     private api: ApiRequestService,
-    private router:Router,
+    private route:Router,
     private transfertService: TransfertServiceService,
   ) { }
 
-  affiche(id){
-
-    this.fraisData.forEach( data => {
-      if(data.id == id){
-        data.visible = !data.visible;
-      }else{
-        data.visible = false;
-      }
-    });
-
+  back(){
+    this.transfertService.goBack();
   }
 
-  transfertIdTrajet(id){
-    
-    this.router.navigateByUrl('/home/frais');
+  frais(data){
+    console.log(data)
+    this.transfertService.setData(data);
+    this.route.navigateByUrl('/frais');
   }
 
   selectId(path){
@@ -47,16 +40,6 @@ export class ListeFraisPage implements OnInit {
   ngOnInit() {
 
     let idTrajet = this.transfertService.getData();
-
-    // let dataFrais;
-
-    // allFrais.forEach(data => {
-    //   let routeId = data.idTrajet;
-    //   let routeIdTab = routeId.split('/');
-    //   if(routeIdTab[2] == idTrajet){
-    //     dataFrais.push(data);
-    //   }
-    // });
 
     allFrais.forEach( data => {
       var trajet = {
@@ -83,6 +66,7 @@ export class ListeFraisPage implements OnInit {
 
         console.log(error);
       });
+      
       console.log(this.fraisData);
   }
 }
