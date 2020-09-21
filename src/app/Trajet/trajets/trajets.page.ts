@@ -66,6 +66,6 @@ export class TrajetsPage {
 
         console.log(error);
       });
-      console.log(this.trajetData);
+     
   }
 }

@@ -15,14 +15,10 @@
   <div class="space2"></div>
 
   <ion-card>
-    <div>
+
       <button class="boutonEdit" (click)="photographie()"><img src="../assets/icon/camera.png" ></button>
       <button class="boutonEdit" (click)="upload()"><img src="../assets/icon/upload.png" ></button>
-    </div>
-    
-    <ion-item>
-      <img *ngIf="ifImage()" src="{{ frais.img }}">
-    </ion-item>
+
   </ion-card>
   
   <ion-card>

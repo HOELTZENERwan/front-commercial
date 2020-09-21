@@ -33,7 +33,7 @@ export class HomePage implements OnInit{
 
   ngOnInit() {
     this.listeFrais.forEach(frais => {
-      console.log(frais)
+
       if(this.selectId(frais.idStatutFrais) == 19){
         this.totalAttente++;
         this.prixEnAttente += frais.montant;
